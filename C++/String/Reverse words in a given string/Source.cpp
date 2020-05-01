@@ -48,6 +48,7 @@ string* reverseTheWordsBack(string* _words, const unsigned int _COUNT_OF_WORDS)
 string* fillTheArrayWords(string* _words, string __input)
 {
 	const unsigned int INPUT_LENGTH = __input.length();
+	
 	for (size_t indexOfLetter = 0, indexOfWord = 0; indexOfLetter < INPUT_LENGTH; indexOfLetter++)
 	{
 		if (__input[indexOfLetter] != ' ')
@@ -77,6 +78,7 @@ string reverseInput(string _input)
 	string result = getTheResult(words, COUNT_OF_WORDS);
 
 	delete[] words;
+	
 	return result;
 }
 
@@ -84,5 +86,6 @@ int main()
 {
 	string input = "I love programming very much";
 	reverseInput(input); // -> Output: much very programming love I 
+	
 	return 0;
 }
