@@ -4,17 +4,17 @@ using std::string;
 // I decided to find the count of words regarding spaces in the sentence //
 int getCountOfWords(string __input)
 {
-	unsigned int CountOfWords = 0;
+	unsigned int сountOfWords = 0;
 
 	for (size_t indexOfLetter = 0; indexOfLetter < __input.length(); indexOfLetter++)
 	{
 		if (__input[indexOfLetter] == ' ')
 		{
-			CountOfWords++;
+			сountOfWords++;
 		}
 	}
 
-	return CountOfWords + 1; // +1 — a last word in sentence after the last space
+	return сountOfWords + 1; // +1 — a last word in sentence after the last space
 }
 
 string getTheResult(string* _words, const unsigned int _COUNT_OF_WORDS)
@@ -77,8 +77,7 @@ string reverseInput(string _input)
 
 	string result = getTheResult(words, COUNT_OF_WORDS);
 
-	delete[] words;
-	
+	delete[] words;	
 	return result;
 }
 
