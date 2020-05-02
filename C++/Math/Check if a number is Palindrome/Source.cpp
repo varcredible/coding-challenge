@@ -1,69 +1,79 @@
-/* 
-
-The solution was created without Google and etc.
-Only me and my head. 
-
-P.S. My goal was to make the solution without modern libries or STL.
-
-*/
+// My goal was to make the solution without modern libries or STL //
 
 #include <iostream>
 
-bool isPalindrome(int _n)
+bool IsThePalindromeNumber(const int* _NUMBER, const int* _REVERSENUMBER, const int _COUNTOFDIGITS)
 {
-	int countOfDigits = 0;	
-	for (size_t i = _n; i ; )
+	for (size_t digitIndex = 0, matches = 0; digitIndex < _COUNTOFDIGITS; digitIndex++)
+	{
+		if (_NUMBER[digitIndex] == _REVERSENUMBER[digitIndex])
+		{
+			matches++;
+		}
+
+		if (digitIndex == _COUNTOFDIGITS - 1)
+		{
+			return (matches == _COUNTOFDIGITS) ? true : false;
+		}
+	}
+}
+
+int getCountOfDigit(const int __N)
+{
+	int countOfDigits = 0;
+
+	for (size_t i = __N; i; )
 	{
 		i /= 10;
 		countOfDigits++;
 	}
 
+	return countOfDigits;
+}
+
+int* fillTheArrayREVERSENUMBER(const int* _NUMBER, int* _reverseNumber, const int _COUNTOFDIGITS)
+{
+	for (size_t digitIndex = 0; digitIndex < _COUNTOFDIGITS; digitIndex++)
+	{
+		_reverseNumber[digitIndex] = _NUMBER[_COUNTOFDIGITS - 1 - digitIndex];
+	}
+
+	return _reverseNumber;
+}
+
+int* fillTheArrayNUMBER(int __n, int* number, const int _COUNTOFDIGITS)
+{
+	for (size_t digitIndex = _COUNTOFDIGITS - 1, degree = 10; digitIndex < _COUNTOFDIGITS; digitIndex--, degree *= 10)
+	{
+		double reminder = __n % (1 * degree);
+		number[digitIndex] = reminder / (degree / 10);
+		__n = (__n / degree) * degree; 
+	}
+
+	return number;
+}
+
+bool isPalindrome(const int _N)
+{
+	int countOfDigits = getCountOfDigit(_N);
 	int* number = new int[countOfDigits];
 	int* reverseNumber = new int[countOfDigits];
+
 	
-	// Fill the number int* array
-	for (size_t digitIndex = countOfDigits - 1, degree = 10; digitIndex < countOfDigits; digitIndex--, degree *= 10)
-	{
-		double reminder = _n % (1 * degree); 
-		number[digitIndex] = reminder / (degree / 10);
-		_n = (_n / degree) * degree;
-	}
+	fillTheArrayNUMBER(_N, number, countOfDigits);
+	fillTheArrayREVERSENUMBER(number, reverseNumber, countOfDigits);
 
-	// Fill the reverseNumber int* array
-	for (size_t digitIndex = 0; digitIndex < countOfDigits; digitIndex++)
-	{
-		reverseNumber[digitIndex] = number[countOfDigits - 1 - digitIndex];
-	}
 
-	// Check if a number is Palindrome
-	for (size_t digitIndex = 0, matches = 0; digitIndex < countOfDigits;  digitIndex++)
-	{		
-		if (number[digitIndex] == reverseNumber[digitIndex])
-		{
-			matches++;
-		}
+	bool result = IsThePalindromeNumber(number, reverseNumber, countOfDigits);
+	
+	delete[] reverseNumber;
+	delete[] number;
 
-		if (digitIndex == countOfDigits - 1)
-		{
-			if (matches == countOfDigits)
-			{
-				delete[] reverseNumber;
-				delete[] number;
-				return true;
-			}
-
-			else
-			{
-				delete[] reverseNumber;
-				delete[] number;
-				return false;
-			}
-		}
-	}
+	return result;
 }
 
 int main()
 {
-	isPalindrome(76667) ? printf("Yes") : printf("No"); // -> Output: Yes
+	isPalindrome(71667) ? printf("Yes") : printf("No"); // -> Output: Yes
 	return 0;
 }
