@@ -1,12 +1,13 @@
 #include <iostream>
 
-int findTheElement(int _arr[], const int _ARRAY_LENGHT)
+int findTheElement(int _arr[], const int _ARRAY_LENGTH)
 {
 	int ones = 0;
 	
 	for (size_t i = 0; i < _ARRAY_LENGHT; i++)
 	{
 		int mismatches = 0; // must be equal to the ARRAY_LENGHT
+		
 		for (size_t j = 0; j < _ARRAY_LENGHT; j++)
 		{
 			if (_arr[i] != _arr[j])
