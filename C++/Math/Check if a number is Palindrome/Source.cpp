@@ -2,18 +2,18 @@
 
 #include <iostream>
 
-bool isThePalindromeNumber(const int* _NUMBER, const int* _REVERSENUMBER, const int _COUNTOFDIGITS)
+bool isThePalindromeNumber(const int* _NUMBER, const int* _REVERSENUMBER, const int _COUNT_OF_DIGITS)
 {
-	for (size_t digitIndex = 0, matches = 0; digitIndex < _COUNTOFDIGITS; digitIndex++)
+	for (size_t digitIndex = 0, matches = 0; digitIndex < _COUNT_OF_DIGITS; digitIndex++)
 	{
 		if (_NUMBER[digitIndex] == _REVERSENUMBER[digitIndex])
 		{
 			matches++;
 		}
 
-		if (digitIndex == _COUNTOFDIGITS - 1)
+		if (digitIndex == _COUNT_OF_DIGITS - 1)
 		{
-			return (matches == _COUNTOFDIGITS) ? true : false;
+			return (matches == _COUNT_OF_DIGITS) ? true : false;
 		}
 	}
 }
@@ -31,19 +31,19 @@ int getCountOfDigit(const int __N)
 	return countOfDigits;
 }
 
-int* fillTheArrayREVERSENUMBER(const int* _NUMBER, int* _reverseNumber, const int _COUNTOFDIGITS)
+int* fillTheArrayREVERSENUMBER(const int* _NUMBER, int* _reverseNumber, const int _COUNT_OF_DIGITS)
 {
-	for (size_t digitIndex = 0; digitIndex < _COUNTOFDIGITS; digitIndex++)
+	for (size_t digitIndex = 0; digitIndex < _COUNT_OF_DIGITS; digitIndex++)
 	{
-		_reverseNumber[digitIndex] = _NUMBER[_COUNTOFDIGITS - 1 - digitIndex];
+		_reverseNumber[digitIndex] = _NUMBER[_COUNT_OF_DIGITS - 1 - digitIndex];
 	}
 
 	return _reverseNumber;
 }
 
-int* fillTheArrayNUMBER(int __n, int* number, const int _COUNTOFDIGITS)
+int* fillTheArrayNUMBER(int __n, int* number, const int _COUNT_OF_DIGITS)
 {
-	for (size_t digitIndex = _COUNTOFDIGITS - 1, degree = 10; digitIndex < _COUNTOFDIGITS; digitIndex--, degree *= 10)
+	for (size_t digitIndex = _COUNT_OF_DIGITS - 1, degree = 10; digitIndex < _COUNT_OF_DIGITS; digitIndex--, degree *= 10)
 	{
 		double reminder = __n % (1 * degree);
 		number[digitIndex] = reminder / (degree / 10);
@@ -74,7 +74,7 @@ bool isPalindrome(const int _N)
 
 int main()
 {
-	isPalindrome(71667) ? printf("Yes") : printf("No"); // -> Output: Yes
-	
+	isPalindrome(76667) ? printf("Yes") : printf("No"); // -> Output: Yes
+
 	return 0;
 }
