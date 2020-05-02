@@ -2,13 +2,13 @@
 using std::string;
 
 // I decided to find the count of words regarding spaces in the sentence //
-int getCountOfWords(string __input)
+int getCountOfWords(const string __INPUT)
 {
 	unsigned int сountOfWords = 0;
 
-	for (size_t indexOfLetter = 0; indexOfLetter < __input.length(); indexOfLetter++)
+	for (size_t indexOfLetter = 0; indexOfLetter < __INPUT.length(); indexOfLetter++)
 	{
-		if (__input[indexOfLetter] == ' ')
+		if (__INPUT[indexOfLetter] == ' ')
 		{
 			сountOfWords++;
 		}
@@ -84,7 +84,7 @@ string reverseInput(string _input)
 int main()
 {
 	string input = "I love programming very much";
-	reverseInput(input); // -> Output: much very programming love I 
+	std::cout << reverseInput(input); // -> Output: much very programming love I 
 	
 	return 0;
 }
