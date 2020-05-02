@@ -14,6 +14,7 @@ int findHighestPowerOfTwo(const int _N)
 
 int main()
 {
-	findHighestPowerOfTwo(10); // -> Output: 8
+	std::cout << findHighestPowerOfTwo(10); // -> Output: 8
+	
 	return 0;
 }
