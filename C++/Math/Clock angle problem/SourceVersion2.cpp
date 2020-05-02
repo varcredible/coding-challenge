@@ -3,29 +3,16 @@
 
 #include <iostream>
 
-int showMessageError(const int _ERRORNUMBER)
+int getHoursAndMinutesFromUser(int* _ptr_hours, int* _ptr_minutes);
+int calculateAndShowTheDegrees(const int* _PTR_HOURS, const int* _PTR_MINUTES);
+int showMessageError(const int _ERRORNUMBER);
+
+int main() 
 {
-	switch (_ERRORNUMBER)
-	{
-	case 1: std::cout << "\nWrong input format! Only numbers! Try again" << std::endl;
-		break;
-	case 2: std::cout << "\nValue of hours can't be over than \"24\" and value of minutes can't be over than \"60\". Try again." << std::endl;
-		break;
+	int hours = 0, minutes = 0, *ptr_hours = &hours, *ptr_minutes = &minutes;
 
-	default: std::cout << "Unknown error!" << std::endl;
-		break;
-	}
-
-	return 0;
-}
-
-int calculateAndShowTheDegrees(const int* _PTR_HOURS, const int* _PTR_MINUTES)
-{
-	double minutesDegrees = (double)*_PTR_HOURS * (360 / 60); // 6 degrees per an minutes
-	double hoursDegrees = ((double)*_PTR_MINUTES * 30) + ((minutesDegrees / 30) * 2.4); //30 degree per an hour 
-	double theDegreesBetweenHands = abs(hoursDegrees - minutesDegrees);
-
-	std::cout << theDegreesBetweenHands << " degree";
+	getHoursAndMinutesFromUser(ptr_hours, ptr_minutes);
+	calculateAndShowTheDegrees(ptr_hours, ptr_minutes);
 
 	return 0;
 }
@@ -71,12 +58,29 @@ int getHoursAndMinutesFromUser(int* _ptr_hours, int* _ptr_minutes)
 	return 0;
 }
 
-int main()
+int calculateAndShowTheDegrees(const int* _PTR_HOURS, const int* _PTR_MINUTES)
 {
-	int hours = 0, minutes = 0, * ptr_hours = &hours, * ptr_minutes = &minutes;
+	double minutesDegrees = (double)*_PTR_HOURS * (360 / 60); // 6 degrees per an minutes
+	double hoursDegrees = ((double)*_PTR_MINUTES * 30) + ((minutesDegrees / 30) * 2.4); //30 degree per an hour
+	double theDegreesBetweenHands = abs(hoursDegrees - minutesDegrees);
 
-	getHoursAndMinutesFromUser(ptr_hours, ptr_minutes);
-	calculateAndShowTheDegrees(ptr_hours, ptr_minutes);
+	std::cout << theDegreesBetweenHands << " degree";
+
+	return 0;
+}
+
+int showMessageError(const int _ERRORNUMBER)
+{
+	switch (_ERRORNUMBER)
+	{
+	case 1: std::cout << "\nWrong input format! Only numbers! Try again" << std::endl;
+		break;
+	case 2: std::cout << "\nValue of hours can't be over than \"24\" and value of minutes can't be over than \"60\". Try again." << std::endl;
+		break;
+
+	default: std::cout << "Unknown error!" << std::endl;
+		break;
+	}
 
 	return 0;
 }
