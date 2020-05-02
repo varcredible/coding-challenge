@@ -1,17 +1,48 @@
 #include <iostream>
 
-int showEror(const int _ERRORNUMBER)
-{
-	switch (_ERRORNUMBER)
-	{
-	case 1: std::cout << "The number must be greater than 0!" << std::endl;
-		break;
-	case 2: std::cout << "Wrong format! Please, try again" << std::endl;
-		break;
+int getDataFromUser();
+int getAndShowThePrimeNumbers(const int _N);
+int showEror(const int _ERRORNUMBER);
 
-	default: std::cout << "Unknown error" << std::endl;
-		break;
-	}
+int main()
+{
+	getDataFromUser();
+	return 0;
+}
+
+int getDataFromUser()
+{
+	bool isCorrect = false;
+	int n = 0;
+
+	do
+	{
+		std::cout << "Enter the number - N: ";
+		std::cin >> n;
+
+		if (!std::cin.fail())
+		{
+
+			if (n > 0)
+			{
+				isCorrect = true;
+				getAndShowThePrimeNumbers(n);
+			}
+
+			else
+			{
+				showEror(1);
+			}
+		}
+
+		else
+		{
+			std::cin.clear();
+			std::cin.ignore(999, '\n');
+			showEror(2);
+		}
+
+	} while (!isCorrect);
 
 	return 0;
 }
@@ -38,45 +69,18 @@ int getAndShowThePrimeNumbers(const int _N)
 	return 0;
 }
 
-int getDataFromUser()
+int showEror(const int _ERROR_NUMBER)
 {
-	bool isCorrect = false;
-	int n = 0;
-
-	do
+	switch (_ERROR_NUMBER)
 	{
-		std::cout << "Enter the number - N: ";
-		std::cin >> n;
+	case 1: std::cout << "The number must be greater than 0!" << std::endl;
+		break;
+	case 2: std::cout << "Wrong format! Please, try again" << std::endl;
+		break;
 
-		if (!std::cin.fail())
-		{
+	default: std::cout << "Unknown error" << std::endl;
+		break;
+	}
 
-			if (n < 1)
-			{
-				showEror(1);
-			}
-
-			else
-			{
-				isCorrect = true;
-				getAndShowThePrimeNumbers(n);
-			}
-		}
-
-		else
-		{
-			std::cin.clear();
-			std::cin.ignore(999, '\n');
-			showEror(2);
-		}
-
-	} while (!isCorrect);
-
-	return 0;
-}
-
-int main()
-{
-	getDataFromUser();
 	return 0;
 }
