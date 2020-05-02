@@ -23,6 +23,7 @@ int replaceAllZeros(const int _N)
 
 int main()
 {
-	replaceAllZeros(102); // -> Output: 152
+	std::cout << replaceAllZeros(102); // -> Output: 152
+	
 	return 0;
 }
