@@ -67,11 +67,11 @@ string* fillTheArrayWords(string* _words, string __input)
 
 string reverseInput(string _input)
 {
-	std::reverse(_input.begin(), _input.end());
 	const unsigned int INPUT_LENGTH = _input.length();
 	const unsigned int COUNT_OF_WORDS = getCountOfWords(_input);
 	string* words = new std::string[COUNT_OF_WORDS];
 	
+	std::reverse(_input.begin(), _input.end());	
 	fillTheArrayWords(words, _input);
 	reverseTheWordsBack(words, COUNT_OF_WORDS);
 
