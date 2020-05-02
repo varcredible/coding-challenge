@@ -2,7 +2,7 @@
 
 #include <iostream>
 
-bool IsThePalindromeNumber(const int* _NUMBER, const int* _REVERSENUMBER, const int _COUNTOFDIGITS)
+bool isThePalindromeNumber(const int* _NUMBER, const int* _REVERSENUMBER, const int _COUNTOFDIGITS)
 {
 	for (size_t digitIndex = 0, matches = 0; digitIndex < _COUNTOFDIGITS; digitIndex++)
 	{
@@ -47,7 +47,7 @@ int* fillTheArrayNUMBER(int __n, int* number, const int _COUNTOFDIGITS)
 	{
 		double reminder = __n % (1 * degree);
 		number[digitIndex] = reminder / (degree / 10);
-		__n = (__n / degree) * degree; 
+		__n = (__n / degree) * degree;
 	}
 
 	return number;
@@ -59,13 +59,13 @@ bool isPalindrome(const int _N)
 	int* number = new int[countOfDigits];
 	int* reverseNumber = new int[countOfDigits];
 
-	
+
 	fillTheArrayNUMBER(_N, number, countOfDigits);
 	fillTheArrayREVERSENUMBER(number, reverseNumber, countOfDigits);
 
 
-	bool result = IsThePalindromeNumber(number, reverseNumber, countOfDigits);
-	
+	bool result = isThePalindromeNumber(number, reverseNumber, countOfDigits);
+
 	delete[] reverseNumber;
 	delete[] number;
 
@@ -75,5 +75,6 @@ bool isPalindrome(const int _N)
 int main()
 {
 	isPalindrome(71667) ? printf("Yes") : printf("No"); // -> Output: Yes
+	
 	return 0;
 }
