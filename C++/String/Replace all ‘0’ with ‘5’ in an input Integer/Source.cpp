@@ -14,6 +14,7 @@ std::string findAndChangeZeros(std::string& _number)
 int replaceAllZeros(const int _N)
 {
 	std::string number = std::to_string(_N);
+	
 	findAndChangeZeros(number);
 
 	int result = stoi(number);
