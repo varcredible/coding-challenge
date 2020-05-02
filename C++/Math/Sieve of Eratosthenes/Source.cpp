@@ -2,7 +2,7 @@
 
 int getDataFromUser();
 int getAndShowThePrimeNumbers(const int _N);
-int showEror(const int _ERRORNUMBER);
+int showMessageError(const int _ERROR_NUMBER);
 
 int main()
 {
@@ -31,7 +31,7 @@ int getDataFromUser()
 
 			else
 			{
-				showEror(1);
+				showMessageError(1);
 			}
 		}
 
@@ -39,7 +39,7 @@ int getDataFromUser()
 		{
 			std::cin.clear();
 			std::cin.ignore(999, '\n');
-			showEror(2);
+			showMessageError(2);
 		}
 
 	} while (!isCorrect);
@@ -69,7 +69,7 @@ int getAndShowThePrimeNumbers(const int _N)
 	return 0;
 }
 
-int showEror(const int _ERROR_NUMBER)
+int showMessageError(const int _ERROR_NUMBER)
 {
 	switch (_ERROR_NUMBER)
 	{
