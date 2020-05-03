@@ -4,7 +4,7 @@ int getHoursAndMinutesFromUser(int* _ptr_hours, int* _ptr_minutes);
 int calculateAndShowTheDegrees(const int* _PTR_HOURS, const int* _PTR_MINUTES);
 int showMessageError(const int _ERRORNUMBER);
 
-int main() 
+int main()
 {
 	int hours = 0, minutes = 0, *ptr_hours = &hours, *ptr_minutes = &minutes;
 
@@ -57,7 +57,7 @@ int getHoursAndMinutesFromUser(int* _ptr_hours, int* _ptr_minutes)
 
 int calculateAndShowTheDegrees(const int* _PTR_HOURS, const int* _PTR_MINUTES)
 {
-	double minutesDegrees = (double)*_PTR_HOURS * (360 / 60); // 6 degrees per an minutes
+	double minutesDegrees = (double)*_PTR_MINUTES * (360 / 60); // 6 degrees per an minutes
 	double hoursDegrees = ((double)*_PTR_HOURS * 30); //30 degrees per an hour
 	double theDegreesBetweenHands = abs(hoursDegrees - minutesDegrees);
 
@@ -66,9 +66,9 @@ int calculateAndShowTheDegrees(const int* _PTR_HOURS, const int* _PTR_MINUTES)
 	return 0;
 }
 
-int showMessageError(const int _ERRORNUMBER)
+int showMessageError(const int _ERROR_NUMBER)
 {
-	switch (_ERRORNUMBER)
+	switch (_ERROR_NUMBER)
 	{
 	case 1: std::cout << "\nWrong input format! Only numbers! Try again" << std::endl;
 		break;
