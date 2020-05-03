@@ -1,10 +1,10 @@
-// The more accurate version //
+// The most accurate version //
 // The hour hand is moves regarding of the minute hand //
 
 #include <iostream>
 
 int getHoursAndMinutesFromUser(int* _ptr_hours, int* _ptr_minutes);
-int calculateAndShowTheDegrees(const int* _PTR_HOURS, const int* _PTR_MINUTES);
+int calculateAndShowTheDegreesBetweenHands(const int* _PTR_HOURS, const int* _PTR_MINUTES);
 int showMessageError(const int _ERRORNUMBER);
 
 int main()
@@ -12,7 +12,7 @@ int main()
 	int hours = 0, minutes = 0, * ptr_hours = &hours, * ptr_minutes = &minutes;
 
 	getHoursAndMinutesFromUser(ptr_hours, ptr_minutes); // -> Input, for example: 2 hours and 43 minutes
-	calculateAndShowTheDegrees(ptr_hours, ptr_minutes); // -> Output: 176.5 degrees
+	calculateAndShowTheDegreesBetweenHands(ptr_hours, ptr_minutes); // -> Output: 193.5 degrees
 
 	return 0;
 }
@@ -58,10 +58,10 @@ int getHoursAndMinutesFromUser(int* _ptr_hours, int* _ptr_minutes)
 	return 0;
 }
 
-int calculateAndShowTheDegrees(const int* _PTR_HOURS, const int* _PTR_MINUTES)
+int calculateAndShowTheDegreesBetweenHands(const int* _PTR_HOURS, const int* _PTR_MINUTES)
 {
-	double minutesDegrees = (double)*_PTR_MINUTES * (360 / 60); // 6 degrees per an minutes
-	double hoursDegrees = ((double)*_PTR_HOURS * 30) + ((minutesDegrees / (30 * 2.4)) * 6); //30 degree per an hour. Every 2.4 hours is 5 minutes
+	double minutesDegrees = (double)*_PTR_MINUTES * (360 / 60);
+	double hoursDegrees = (minutesDegrees / 6) * ((2.4 / 5) + 1.02);
 	double theDegreesBetweenHands = abs(hoursDegrees - minutesDegrees);
 
 	std::cout << theDegreesBetweenHands << " degrees";
