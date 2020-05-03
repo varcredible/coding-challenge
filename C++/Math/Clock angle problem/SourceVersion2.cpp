@@ -11,8 +11,8 @@ int main()
 {
 	int hours = 0, minutes = 0, * ptr_hours = &hours, * ptr_minutes = &minutes;
 
-	getHoursAndMinutesFromUser(ptr_hours, ptr_minutes);
-	calculateAndShowTheDegrees(ptr_hours, ptr_minutes);
+	getHoursAndMinutesFromUser(ptr_hours, ptr_minutes); // -> Input, for example: 2 hours and 43 minutes
+	calculateAndShowTheDegrees(ptr_hours, ptr_minutes); // -> Output: 176.5 degrees
 
 	return 0;
 }
@@ -64,7 +64,7 @@ int calculateAndShowTheDegrees(const int* _PTR_HOURS, const int* _PTR_MINUTES)
 	double hoursDegrees = ((double)*_PTR_HOURS * 30) + ((minutesDegrees / (30 * 2.4)) * 6); //30 degree per an hour. Every 2.4 hours is 5 minutes
 	double theDegreesBetweenHands = abs(hoursDegrees - minutesDegrees);
 
-	std::cout << theDegreesBetweenHands << " degree";
+	std::cout << theDegreesBetweenHands << " degrees";
 
 	return 0;
 }
