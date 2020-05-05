@@ -19,7 +19,7 @@ string reverseInput(string _input)
 {
 	const unsigned int INPUT_LENGTH = _input.length();
 	const unsigned int COUNT_OF_WORDS = getCountOfWords(_input);
-	string* words = new std::string[COUNT_OF_WORDS];
+	string* words = new string[COUNT_OF_WORDS];
 
 	std::reverse(_input.begin(), _input.end());
 	fillTheArrayWords(words, _input);
