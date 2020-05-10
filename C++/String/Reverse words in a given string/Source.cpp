@@ -1,5 +1,7 @@
 #include <iostream>
 using std::string;
+using std::cout;
+using std::reverse;
 
 string reverseInput(string _input);
 int getCountOfWords(const string __INPUT);
@@ -10,7 +12,7 @@ string getTheResult(string* _words, const unsigned int _COUNT_OF_WORDS);
 int main()
 {
 	string input = "I love programming very much";
-	std::cout << reverseInput(input); // -> Output: much very programming love I 
+	cout << reverseInput(input); // -> Output: much very programming love I 
 
 	return 0;
 }
@@ -21,7 +23,7 @@ string reverseInput(string _input)
 	const unsigned int COUNT_OF_WORDS = getCountOfWords(_input);
 	string* words = new string[COUNT_OF_WORDS];
 
-	std::reverse(_input.begin(), _input.end());
+	reverse(_input.begin(), _input.end());
 	fillTheArrayWords(words, _input);
 	reverseTheWordsBack(words, COUNT_OF_WORDS);
 
@@ -71,7 +73,7 @@ string* reverseTheWordsBack(string* _words, const unsigned int _COUNT_OF_WORDS)
 {
 	for (size_t indexOfWord = 0; indexOfWord < _COUNT_OF_WORDS; indexOfWord++)
 	{
-		std::reverse(_words[indexOfWord].begin(), _words[indexOfWord].end());
+		reverse(_words[indexOfWord].begin(), _words[indexOfWord].end());
 	}
 
 	return _words;
