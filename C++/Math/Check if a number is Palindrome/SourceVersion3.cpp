@@ -12,11 +12,9 @@ int main() {
 }
 
 bool isPalindrome(const int _N) {
-	string number = std::to_string(_N);
+	string number = to_string(_N);
 	string reverse_number = number;
 	reverse(reverse_number.begin(), reverse_number.end());
 
 	return (number == reverse_number) ? true : false;
 }
-
-
