@@ -1,8 +1,9 @@
 #include <iostream>
+using namespace std;
 
 int getDataFromUser();
 int getAndShowThePrimeNumbers(const int _N);
-int showMessageError(const int _ERROR_NUMBER);
+int showErrorMessage(const int _ERROR_NUMBER);
 
 int main()
 {
@@ -17,10 +18,10 @@ int getDataFromUser()
 
 	do
 	{
-		std::cout << "Enter the number - N: ";
-		std::cin >> n;
+		cout << "Enter the number - N: ";
+		cin >> n;
 
-		if (!std::cin.fail())
+		if (!cin.fail())
 		{
 
 			if (n > 0)
@@ -31,15 +32,15 @@ int getDataFromUser()
 
 			else
 			{
-				showMessageError(1);
+				showErrorMessage(1);
 			}
 		}
 
 		else
 		{
-			std::cin.clear();
-			std::cin.ignore(999, '\n');
-			showMessageError(2);
+			cin.clear();
+			cin.ignore(999, '\n');
+			showErrorMessage(2);
 		}
 
 	} while (!isCorrect);
@@ -54,14 +55,14 @@ int getAndShowThePrimeNumbers(const int _N)
 
 		if ((i == 2) || (i == 3) || (i == 5) || (i == 7))
 		{
-			std::cout << i << " ";
+			cout << i << " ";
 		}
 
 		if ((i % 2 != 0))
 		{
 			if ((i % 3 != 0) && (i % 5 != 0) && (i % 7 != 0))
 			{
-				std::cout << i << " ";
+				cout << i << " ";
 			}
 		}
 	}
@@ -69,16 +70,16 @@ int getAndShowThePrimeNumbers(const int _N)
 	return 0;
 }
 
-int showMessageError(const int _ERROR_NUMBER)
+int showErrorMessage(const int _ERROR_NUMBER)
 {
 	switch (_ERROR_NUMBER)
 	{
-	case 1: std::cout << "The number must be greater than 0!" << std::endl;
+	case 1: cout << "The number must be greater than 0!" << endl;
 		break;
-	case 2: std::cout << "Wrong format! Please, try again" << std::endl;
+	case 2: cout << "Wrong format! Please, try again" << endl;
 		break;
 
-	default: std::cout << "Unknown error" << std::endl;
+	default: cout << "Unknown error" << endl;
 		break;
 	}
 
