@@ -1,4 +1,5 @@
 #include <iostream>
+using namespace std;
 
 int findTheElement(int _arr[], const int _ARRAY_LENGTH);
 
@@ -7,7 +8,7 @@ int main()
 	int arr[] = { 12, 1, 12, 3, 12, 1, 1, 2, 3, 3 };
 	const int ARRAY_LENGHT = sizeof(arr) / sizeof(int);
 
-	std::cout << findTheElement(arr, ARRAY_LENGHT) << std::endl; // -> Output: 2
+	cout << findTheElement(arr, ARRAY_LENGHT) << endl; // -> Output: 2
 
 	return 0;
 }
