@@ -1,18 +1,19 @@
 #include <iostream>
 #include <string>
+using namespace std;
 
 int replaceAllZeros(const int _N);
-std::string findAndChangeZeros(std::string& _number);
+string findAndChangeZeros(string& _number);
 
 int main()
 {
-	std::cout << replaceAllZeros(102); // -> Output: 152
+	cout << replaceAllZeros(102); // -> Output: 152
 	return 0;
 }
 
 int replaceAllZeros(const int _N)
 {
-	std::string number = std::to_string(_N);
+	string number = to_string(_N);
 
 	findAndChangeZeros(number);
 
@@ -20,7 +21,7 @@ int replaceAllZeros(const int _N)
 	return result;
 }
 
-std::string findAndChangeZeros(std::string& _number)
+string findAndChangeZeros(string& _number)
 {
 	for (size_t indexDigit = 0; indexDigit < _number.length(); indexDigit++)
 	{
