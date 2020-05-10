@@ -3,7 +3,7 @@ using namespace std;
 
 int getHoursAndMinutesFromUser(int* _ptr_hours, int* _ptr_minutes);
 int calculateAndShowTheDegrees(const int* _PTR_HOURS, const int* _PTR_MINUTES);
-int showMessageError(const int _ERRORNUMBER);
+int showErrorMessage(const int _ERRORNUMBER);
 
 int main()
 {
@@ -40,7 +40,7 @@ int getHoursAndMinutesFromUser(int* _ptr_hours, int* _ptr_minutes)
 
 			else
 			{
-				showMessageError(2);
+				showErrorMessage(2);
 			}
 		}
 
@@ -48,7 +48,7 @@ int getHoursAndMinutesFromUser(int* _ptr_hours, int* _ptr_minutes)
 		{
 			cin.clear();
 			cin.ignore(32767, '\n');
-			showMessageError(1);
+			showErrorMessage(1);
 		}
 
 	} while (!isCorrectData);
@@ -67,7 +67,7 @@ int calculateAndShowTheDegrees(const int* _PTR_HOURS, const int* _PTR_MINUTES)
 	return 0;
 }
 
-int showMessageError(const int _ERROR_NUMBER)
+int showErrorMessage(const int _ERROR_NUMBER)
 {
 	switch (_ERROR_NUMBER)
 	{
