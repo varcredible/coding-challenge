@@ -6,7 +6,7 @@ using namespace std;
 
 int getHoursAndMinutesFromUser(int* _ptr_hours, int* _ptr_minutes);
 int calculateAndShowTheDegreesBetweenHands(const int* _PTR_HOURS, const int* _PTR_MINUTES);
-int showErrorMessage(const int _ERRORNUMBER);
+int showErrorMessage(const int _ERROR_NUMBER);
 
 int main()
 {
